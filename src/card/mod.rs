@@ -12,13 +12,14 @@ macro_rules! card {
 }
 
 #[derive(Debug, Clone, Copy)]
+#[allow(dead_code)]
 pub struct Card {
-    _color: CardColor,
-    _value: CardValue,
+    color: CardColor,
+    value: CardValue,
 }
 
 impl Card {
-    pub fn new(_color: CardColor, _value: CardValue) -> Self {
-        Self { _color, _value }
+    pub fn new(color: CardColor, value: CardValue) -> Self {
+        Self { color, value }
     }
 }
