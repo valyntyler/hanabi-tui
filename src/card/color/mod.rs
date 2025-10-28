@@ -25,3 +25,15 @@ pub enum CardColor {
     White,
     Yellow,
 }
+
+impl CardColor {
+    pub fn all() -> [Self; 5] {
+        [
+            Self::Blue,
+            Self::Green,
+            Self::Red,
+            Self::Yellow,
+            Self::White,
+        ]
+    }
+}
