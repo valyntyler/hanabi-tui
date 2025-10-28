@@ -1,19 +1,19 @@
 #[macro_export]
 macro_rules! card_value {
     (1) => {
-        CardValue::_1
+        $crate::card::value::CardValue::_1
     };
     (2) => {
-        CardValue::_2
+        $crate::card::value::CardValue::_2
     };
     (3) => {
-        CardValue::_3
+        $crate::card::value::CardValue::_3
     };
     (4) => {
-        CardValue::_4
+        $crate::card::value::CardValue::_4
     };
     (5) => {
-        CardValue::_5
+        $crate::card::value::CardValue::_5
     };
 }
 
