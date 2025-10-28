@@ -1,3 +1,7 @@
+use hanabi_tui::card::{Card, color::CardColor, value::CardValue};
+
 fn main() {
-    println!("Hello, world!");
+    let card = Card::new(CardColor::Red, CardValue::_5);
+
+    println!("{:?}", card);
 }
