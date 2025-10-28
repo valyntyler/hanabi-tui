@@ -1,19 +1,19 @@
 #[macro_export]
 macro_rules! card_color {
     ("blue") => {
-        CardColor::Blue
+        $crate::card::color::CardColor::Blue
     };
     ("green") => {
-        CardColor::Green
+        $crate::card::color::CardColor::Green
     };
     ("red") => {
-        CardColor::Red
+        $crate::card::color::CardColor::Red
     };
     ("white") => {
-        CardColor::White
+        $crate::card::color::CardColor::White
     };
     ("yellow") => {
-        CardColor::Yellow
+        $crate::card::color::CardColor::Yellow
     };
 }
 
