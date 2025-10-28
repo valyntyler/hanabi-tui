@@ -4,7 +4,7 @@ use crate::card::value::CardValue;
 pub mod color;
 pub mod value;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub struct Card {
     color: CardColor,
     value: CardValue,
