@@ -1,18 +1,14 @@
-use hanabi_tui::{Render, card};
+use hanabi_tui::{Render, card, hand::Hand};
 
 fn main() {
-    let card = card!("red", 1);
-    println!("{}", card.render());
+    let hand = Hand::new(vec![
+        card!("red", 1),
+        card!("blue", 2),
+        card!("green", 3),
+        card!("white", 4),
+        card!("yellow", 5),
+    ]);
 
-    let card = card!("blue", 2);
-    println!("{}", card.render());
-
-    let card = card!("green", 3);
-    println!("{}", card.render());
-
-    let card = card!("white", 4);
-    println!("{}", card.render());
-
-    let card = card!("yellow", 5);
-    println!("{}", card.render());
+    println!("{}", hand.render());
+    println!("{}", card!("yellow", 5).render());
 }

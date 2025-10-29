@@ -1,4 +1,5 @@
 use crate::{
+    Render,
     area::{discard::DiscardArea, scoring::ScoringArea},
     card::Card,
     deck::Deck,
@@ -6,6 +7,41 @@ use crate::{
 
 #[derive(Debug)]
 pub struct Hand(Vec<Card>);
+
+impl Render for Hand {
+    fn render(&self) -> String {
+        [
+            "┌───".repeat(self.len()),
+            self.0
+                .iter()
+                .map(|card| format!("│ {} ", card.value))
+                .collect::<String>(),
+            self.0
+                .iter()
+                .map(|card| format!("│ {} ", card.color))
+                .collect::<String>(),
+            "│   ".repeat(self.len()),
+            "│   ".repeat(self.len()),
+            "│   ".repeat(self.len()),
+            "└───".repeat(self.len()),
+        ]
+        .into_iter()
+        .zip(
+            [
+                "─────┐",
+                "     │",
+                "     │",
+                "     │",
+                "     │",
+                "     │",
+                "─────┘",
+            ]
+            .map(|s| s.to_owned()),
+        )
+        .map(|s| format!("{}{}\n", s.0, s.1))
+        .collect::<String>()
+    }
+}
 
 impl Hand {
     pub fn empty() -> Self {
