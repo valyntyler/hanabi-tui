@@ -2,7 +2,10 @@ use hanabi_tui::{deck::Deck, hand::Hand};
 
 fn main() {
     let mut deck = Deck::default();
-    let hand = Hand::draw(&mut deck);
+    let mut hand = Hand::empty();
+
+    hand.draw(&mut deck);
+    hand.draw(&mut deck);
 
     println!("{:#?}", hand);
     println!("{:#?}", deck.len());
