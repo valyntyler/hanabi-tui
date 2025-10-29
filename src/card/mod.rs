@@ -1,3 +1,4 @@
+use crate::Render;
 use crate::card::color::CardColor;
 use crate::card::value::CardValue;
 
@@ -15,6 +16,22 @@ macro_rules! card {
 pub struct Card {
     pub color: CardColor,
     pub value: CardValue,
+}
+
+impl Render for Card {
+    fn render(&self) -> String {
+        [
+            "┌────────┐\n",
+            &format!("│ {}      │\n", self.value),
+            &format!("│ {}      │\n", self.color),
+            "│        │\n",
+            "│        │\n",
+            "│        │\n",
+            "└────────┘",
+        ]
+        .into_iter()
+        .collect()
+    }
 }
 
 impl Card {

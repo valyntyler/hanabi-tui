@@ -1,3 +1,7 @@
+use std::fmt::Display;
+
+use colored::Colorize;
+
 #[macro_export]
 macro_rules! card_color {
     ("blue") => {
@@ -24,6 +28,42 @@ pub enum CardColor {
     Red,
     White,
     Yellow,
+}
+
+impl From<CardColor> for colored::Color {
+    fn from(value: CardColor) -> Self {
+        match value {
+            CardColor::Blue => colored::Color::Blue,
+            CardColor::Green => colored::Color::Green,
+            CardColor::Red => colored::Color::Red,
+            CardColor::White => colored::Color::White,
+            CardColor::Yellow => colored::Color::Yellow,
+        }
+    }
+}
+
+impl From<CardColor> for char {
+    fn from(value: CardColor) -> Self {
+        match value {
+            CardColor::Blue => 'x',
+            CardColor::Green => '%',
+            CardColor::Red => '+',
+            CardColor::White => '@',
+            CardColor::Yellow => '*',
+        }
+    }
+}
+
+impl Display for CardColor {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            char::from(*self)
+                .to_string()
+                .color(colored::Color::from(*self))
+        )
+    }
 }
 
 impl CardColor {

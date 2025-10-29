@@ -1,23 +1,18 @@
-use hanabi_tui::{
-    area::{discard::DiscardArea, scoring::ScoringArea},
-    deck::Deck,
-    hand::Hand,
-};
+use hanabi_tui::{Render, card};
 
 fn main() {
-    let mut deck = Deck::default();
-    let mut hand = Hand::empty();
+    let card = card!("red", 1);
+    println!("{}", card.render());
 
-    hand.draw(&mut deck);
-    hand.draw(&mut deck);
+    let card = card!("blue", 2);
+    println!("{}", card.render());
 
-    let mut discard = DiscardArea::empty();
-    let mut scoring = ScoringArea::default();
+    let card = card!("green", 3);
+    println!("{}", card.render());
 
-    hand.play(&mut scoring, &mut discard, 0);
-    hand.play(&mut scoring, &mut discard, 0);
+    let card = card!("white", 4);
+    println!("{}", card.render());
 
-    println!("{:#?}", hand);
-    println!("{:#?}", scoring);
-    println!("{:#?}", discard);
+    let card = card!("yellow", 5);
+    println!("{}", card.render());
 }
