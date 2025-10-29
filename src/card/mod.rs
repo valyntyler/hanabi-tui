@@ -21,16 +21,15 @@ pub struct Card {
 impl Render for Card {
     fn render(&self) -> String {
         [
-            "┌────────┐\n",
-            &format!("│ {}      │\n", self.value),
-            &format!("│ {}      │\n", self.color),
-            "│        │\n",
-            "│        │\n",
-            "│        │\n",
+            "┌────────┐",
+            &format!("│ {}      │", self.value),
+            &format!("│ {}      │", self.color),
+            "│        │",
+            "│        │",
+            "│        │",
             "└────────┘",
         ]
-        .into_iter()
-        .collect()
+        .join("\n")
     }
 }
 
