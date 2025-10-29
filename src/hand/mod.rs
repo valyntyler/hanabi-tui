@@ -1,4 +1,4 @@
-use crate::{card::Card, deck::Deck};
+use crate::{card::Card, deck::Deck, pile::discard::DiscardPile};
 
 #[derive(Debug)]
 #[allow(dead_code)]
@@ -18,6 +18,10 @@ impl Hand {
             .filter_map(|_| deck.draw())
             .collect::<Vec<Card>>();
         self.0.append(&mut rest);
+    }
+
+    pub fn discard(&mut self, discard: &mut DiscardPile, index: usize) {
+        discard.discard(self.0.remove(index));
     }
 
     pub fn len(&self) -> usize {

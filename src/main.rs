@@ -1,4 +1,4 @@
-use hanabi_tui::{deck::Deck, hand::Hand};
+use hanabi_tui::{deck::Deck, hand::Hand, pile::discard::DiscardPile};
 
 fn main() {
     let mut deck = Deck::default();
@@ -6,6 +6,11 @@ fn main() {
 
     hand.draw(&mut deck);
     hand.draw(&mut deck);
+
+    let mut discard = DiscardPile::empty();
+    hand.discard(&mut discard, 0);
+    hand.discard(&mut discard, 0);
+    hand.discard(&mut discard, 0);
 
     println!("{:#?}", hand);
     println!("{:#?}", deck.len());
