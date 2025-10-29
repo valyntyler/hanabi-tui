@@ -1,16 +1,8 @@
-use hanabi_tui::{card, deck::Deck, hand::Hand};
+use hanabi_tui::{deck::Deck, hand::Hand};
 
 fn main() {
-    let mut _deck = Deck::default();
+    let mut deck = Deck::default();
+    let hand = Hand::draw(&mut deck);
 
-    let _card = card!("red", 2);
-    let _hand = Hand::new(vec![
-        _deck.draw().unwrap(),
-        _deck.draw().unwrap(),
-        _deck.draw().unwrap(),
-        _deck.draw().unwrap(),
-        _deck.draw().unwrap(),
-    ]);
-
-    println!("{:#?}", _hand);
+    println!("{:#?}", hand);
 }
