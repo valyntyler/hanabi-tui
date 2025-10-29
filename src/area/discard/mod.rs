@@ -1,9 +1,9 @@
 use crate::card::Card;
 
 #[allow(dead_code)]
-pub struct DiscardPile(Vec<Card>);
+pub struct DiscardArea(Vec<Card>);
 
-impl DiscardPile {
+impl DiscardArea {
     pub fn empty() -> Self {
         Self(vec![])
     }
