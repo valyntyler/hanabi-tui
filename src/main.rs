@@ -5,4 +5,6 @@ fn main() {
     let hand = Hand::draw(&mut deck);
 
     println!("{:#?}", hand);
+    println!("{:#?}", deck.len());
+    println!("{:#?}", deck.is_empty());
 }
