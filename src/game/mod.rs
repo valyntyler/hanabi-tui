@@ -1,4 +1,8 @@
-use crate::{area::scoring::ScoringArea, deck::Deck, hand::Hand, pile::discard::DiscardPile};
+use crate::{
+    area::{discard::DiscardArea, scoring::ScoringArea},
+    deck::Deck,
+    hand::Hand,
+};
 
 #[allow(dead_code)]
 pub struct Game {
@@ -6,7 +10,7 @@ pub struct Game {
     cards: Deck,
 
     scoring: ScoringArea,
-    discard: DiscardPile,
+    discard: DiscardArea,
 
     info_tokens: i8,
     fuse_tokens: i8,

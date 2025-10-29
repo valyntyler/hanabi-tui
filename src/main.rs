@@ -1,4 +1,8 @@
-use hanabi_tui::{deck::Deck, hand::Hand, pile::discard::DiscardPile};
+use hanabi_tui::{
+    area::{discard::DiscardArea, scoring::ScoringArea},
+    deck::Deck,
+    hand::Hand,
+};
 
 fn main() {
     let mut deck = Deck::default();
@@ -7,12 +11,13 @@ fn main() {
     hand.draw(&mut deck);
     hand.draw(&mut deck);
 
-    let mut discard = DiscardPile::empty();
-    hand.discard(&mut discard, 0);
-    hand.discard(&mut discard, 0);
-    hand.discard(&mut discard, 0);
+    let mut discard = DiscardArea::empty();
+    let mut scoring = ScoringArea::default();
+
+    hand.play(&mut scoring, &mut discard, 0);
+    hand.play(&mut scoring, &mut discard, 0);
 
     println!("{:#?}", hand);
-    println!("{:#?}", deck.len());
-    println!("{:#?}", deck.is_empty());
+    println!("{:#?}", scoring);
+    println!("{:#?}", discard);
 }

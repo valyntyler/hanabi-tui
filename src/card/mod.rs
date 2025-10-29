@@ -12,10 +12,9 @@ macro_rules! card {
 }
 
 #[derive(Debug, Clone, Copy)]
-#[allow(dead_code)]
 pub struct Card {
-    color: CardColor,
-    value: CardValue,
+    pub color: CardColor,
+    pub value: CardValue,
 }
 
 impl Card {

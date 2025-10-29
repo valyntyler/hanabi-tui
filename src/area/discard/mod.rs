@@ -1,6 +1,6 @@
 use crate::card::Card;
 
-#[allow(dead_code)]
+#[derive(Debug)]
 pub struct DiscardArea(Vec<Card>);
 
 impl DiscardArea {

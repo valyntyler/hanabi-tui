@@ -1,7 +1,10 @@
-use crate::{card::Card, deck::Deck, pile::discard::DiscardPile};
+use crate::{
+    area::{discard::DiscardArea, scoring::ScoringArea},
+    card::Card,
+    deck::Deck,
+};
 
 #[derive(Debug)]
-#[allow(dead_code)]
 pub struct Hand(Vec<Card>);
 
 impl Hand {
@@ -20,7 +23,13 @@ impl Hand {
         self.0.append(&mut rest);
     }
 
-    pub fn discard(&mut self, discard: &mut DiscardPile, index: usize) {
+    pub fn play(&mut self, scoring: &mut ScoringArea, discard: &mut DiscardArea, index: usize) {
+        if let Err(card) = scoring.play(self.0.remove(index)) {
+            discard.discard(card)
+        }
+    }
+
+    pub fn discard(&mut self, discard: &mut DiscardArea, index: usize) {
         discard.discard(self.0.remove(index));
     }
 

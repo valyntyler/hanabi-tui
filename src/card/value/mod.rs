@@ -17,7 +17,7 @@ macro_rules! card_value {
     };
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CardValue {
     _1,
     _2,

@@ -17,7 +17,7 @@ macro_rules! card_color {
     };
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum CardColor {
     Blue,
     Green,
