@@ -25,3 +25,22 @@ pub enum CardValue {
     _4,
     _5,
 }
+
+pub trait Next {
+    fn next(&self) -> Self;
+}
+
+impl Next for Option<CardValue> {
+    fn next(&self) -> Self {
+        match self {
+            None => Some(CardValue::_1),
+            Some(value) => match value {
+                CardValue::_1 => Some(CardValue::_2),
+                CardValue::_2 => Some(CardValue::_3),
+                CardValue::_3 => Some(CardValue::_4),
+                CardValue::_4 => Some(CardValue::_5),
+                CardValue::_5 => None,
+            },
+        }
+    }
+}
