@@ -10,4 +10,8 @@ impl ScoringPile {
     pub fn new(score: Option<CardValue>, color: CardColor) -> Self {
         Self { score, color }
     }
+
+    pub fn top(&self) -> Option<CardValue> {
+        self.score
+    }
 }
