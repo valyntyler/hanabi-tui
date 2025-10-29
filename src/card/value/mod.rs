@@ -25,15 +25,3 @@ pub enum CardValue {
     _4,
     _5,
 }
-
-impl CardValue {
-    pub fn next(&self) -> Option<Self> {
-        match self {
-            CardValue::_1 => Some(CardValue::_2),
-            CardValue::_2 => Some(CardValue::_3),
-            CardValue::_3 => Some(CardValue::_4),
-            CardValue::_4 => Some(CardValue::_5),
-            CardValue::_5 => None,
-        }
-    }
-}
