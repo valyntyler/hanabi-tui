@@ -2,12 +2,14 @@ use crate::card::Card;
 use crate::card::color::CardColor;
 use crate::card_value;
 
+use rand::{rng, seq::SliceRandom};
+
 #[derive(Debug)]
 pub struct Deck(Vec<Card>);
 
 impl Default for Deck {
     fn default() -> Self {
-        Self(
+        let mut deck = Self(
             CardColor::all()
                 .map(|color| {
                     [
@@ -23,12 +25,19 @@ impl Default for Deck {
                 .into_iter()
                 .flatten()
                 .collect(),
-        )
+        );
+        deck.shuffle();
+        deck
     }
 }
 
 impl Deck {
     pub fn draw(&mut self) -> Option<Card> {
         self.0.pop()
+    }
+
+    pub fn shuffle(&mut self) {
+        let mut rng = rng();
+        self.0.shuffle(&mut rng);
     }
 }
