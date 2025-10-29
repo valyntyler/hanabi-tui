@@ -2,12 +2,12 @@ use crate::card::{color::CardColor, value::CardValue};
 
 #[allow(dead_code)]
 pub struct ScoringPile {
-    score: CardValue,
+    score: Option<CardValue>,
     color: CardColor,
 }
 
 impl ScoringPile {
-    pub fn new(score: CardValue, color: CardColor) -> Self {
+    pub fn new(score: Option<CardValue>, color: CardColor) -> Self {
         Self { score, color }
     }
 }
